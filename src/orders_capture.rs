@@ -35,7 +35,7 @@ pub struct ShippingPrice {
 /// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartwithrequiredtotalwithoutfinalprice>
 pub struct CartWithRequiredTotalWithoutFinalPrice {
     /// Позиции корзины
-    pub items: Vec<CartItemWithoutFinalPrice>,
+    pub items: Vec<CartItemWithoutFinalPriceCamelCase>,
     /// Итоговая информация о стоимости заказа
     pub total: CartTotal,
     /// Внутренний идентификатор корзины Яндекс Пэй
@@ -73,8 +73,8 @@ pub enum CartVersion {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartwithrequiredtotalwithoutfinalprice>
-pub struct CartItemWithoutFinalPrice {
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartitemwithoutfinalpricecamelcase>
+pub struct CartItemWithoutFinalPriceCamelCase {
     #[into]
     /// Id товара в системе продавца
     pub product_id: String,

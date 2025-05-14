@@ -105,7 +105,7 @@ impl HttpClient for reqwest::Client {
             let body = request.body.clone();
             let response = client
                 .post(&*request.url)
-                .header("Authorization", format!("Bearer {}", request.api_key))
+                .header("Authorization", format!("Api-Key {}", request.api_key))
                 .header("X-Request-Id", &*request.request_id)
                 .header("X-Request-Timeout", request.request_timeout.to_string())
                 .header("X-Request-Attempt", request.request_attempt.to_string())
@@ -120,6 +120,7 @@ impl HttpClient for reqwest::Client {
                 Ok(result.data)
             } else {
                 let error_message = response.text().await?;
+                tracing::error!("{}", error_message);
                 let error = serde_json::from_str::<YandexPayApiResponseError>(&error_message)?;
                 Err(YandexPayApiError::Api(error))
             }
