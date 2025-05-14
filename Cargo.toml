@@ -2,7 +2,15 @@
 name = "yandex_pay_api"
 version = "0.1.0"
 edition = "2024"
-
+authors = ["Modeck Rus <modeckrus.official.page@gmail.com>"]
+categories = ["api-bindings"]
+description = "Yandex Pay API"
+documentation = "https://docs.rs/yandex_pay_api"
+homepage = "https://github.com/modeckrus/yandex_pay_api"
+keywords = ["yandex", "pay", "api"]
+license = "MIT OR Apache-2.0"
+readme = "ReadMe.md"
+repository = "https://github.com/modeckrus/yandex_pay_api"
 [dependencies]
 tracing = "*"
 serde = { version = "*", features = ["derive", "rc"] }
