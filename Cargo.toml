@@ -12,22 +12,18 @@ license = "MIT OR Apache-2.0"
 readme = "ReadMe.md"
 repository = "https://github.com/modeckrus/yandex_pay_api"
 [dependencies]
-tracing = "*"
-serde = { version = "*", features = ["derive", "rc"] }
-serde_json = "*"
-reqwest = { version = "*", default-features = false, features = [
-    "json",
-    "rustls-tls",
-] }
-uuid = { version = "*", features = ["v4", "serde", "v7"] }
-thiserror = "*"
-anyhow = "*"
-serde_repr = "*"
-builder-pattern = "*"
-chrono = { version = "*" }
-bytes = { version = "*" }
+tracing = "0.1"
+serde = { version = "1", features = ["derive", "rc"] }
+serde_json = { version = "1" }
+reqwest = { version = "0.12" }
+uuid = { version = "1", features = ["v4", "serde", "v7"] }
+thiserror = "2"
+serde_repr = "0.1"
+builder-pattern = "0.4"
+chrono = { version = "0.4" }
+bytes = { version = "1" }
 
 [dev-dependencies]
 dotenv = "0.15.0"
-tokio = { version = "*", features = ["full"] }
+tokio = { version = "1.45", features = ["full"] }
 tracing-subscriber = "0.3.19"

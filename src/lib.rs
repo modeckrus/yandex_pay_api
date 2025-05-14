@@ -37,8 +37,6 @@ pub enum YandexPayApiError {
     Serde(#[from] serde_json::Error),
     #[error("Yandex Pay API error: {0}")]
     Api(YandexPayApiResponseError),
-    #[error("Yandex Pay error: {0}")]
-    Other(#[from] anyhow::Error),
 }
 
 pub(crate) type S = Arc<str>;
