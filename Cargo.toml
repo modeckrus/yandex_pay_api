@@ -1,0 +1,23 @@
+[package]
+name = "yandex_pay_api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tracing = "*"
+serde = { version = "*", features = ["derive", "rc"] }
+serde_json = "*"
+reqwest = { version = "*", default-features = false, features = [
+    "json",
+    "rustls-tls",
+] }
+uuid = { version = "*", features = ["v4", "serde", "v7"] }
+thiserror = "*"
+anyhow = "*"
+serde_repr = "*"
+builder-pattern = "*"
+chrono = { version = "*" }
+bytes = { version = "*" }
+
+[dev-dependencies]
+tokio = { version = "*", features = ["full"] }
