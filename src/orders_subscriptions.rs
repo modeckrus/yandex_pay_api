@@ -6,7 +6,7 @@ use crate::serde_help::*;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions-post#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions-post#body>
 pub struct OrderSubscriptionRequest {
     /// Трехбуквенный код валюты заказа (ISO 4217)
     #[default(CurrencyCode::Rub)]

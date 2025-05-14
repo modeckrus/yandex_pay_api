@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Тело запроса на возврат
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#body>
 pub struct RefundRequest {
     #[serde(with = "string_as_float")]
     /// Сумма к возврату
@@ -50,7 +50,7 @@ pub struct RefundRequest {
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Описывает итоговое состояние корзины
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#targetcart
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#targetcart>
 pub struct TargetCart {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     /// Позиции корзины
@@ -60,7 +60,7 @@ pub struct TargetCart {
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Позиция корзины
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#targetcartitem
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#targetcartitem>
 pub struct TargetCartItem {
     #[into]
     /// Идентификатор позиции в корзине на момент создания заказа.
@@ -87,7 +87,7 @@ pub struct TargetCartItem {
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Описывает итоговое состояние доставки
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#targetshipping
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v2_refund-post#targetshipping>
 pub struct TargetShipping {
     #[serde(with = "string_as_float")]
     /// Стоимость доставки после выполнения операции

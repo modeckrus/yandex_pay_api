@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные ответа для получения деталей заказа.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#orderresponsedata
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#orderresponsedata>
 pub struct OrderResponseData {
     pub delivery: Option<Delivery>,
     pub operations: Vec<OrderResponseOperation>,
@@ -17,7 +17,7 @@ pub struct OrderResponseData {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные о доставке.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#delivery
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#delivery>
 pub struct Delivery {
     #[serde(with = "string_as_float")]
     pub price: f64,
@@ -51,7 +51,7 @@ pub enum DeliveryStatus {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные операции в ответе на запрос деталей заказа.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#orderresponseoperation
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#orderresponseoperation>
 pub struct OrderResponseOperation {
     #[serde(with = "string_as_float")]
     pub amount: f64,
@@ -98,7 +98,7 @@ pub enum OperationStatus {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные заказа.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#basemerchantapiorder
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#basemerchantapiorder>
 pub struct BaseMerchantApiOrder {
     /// Корзина
     pub cart: Cart,
@@ -173,7 +173,7 @@ pub enum PaymentStatus {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные корзины.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#cart
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#cart>
 pub struct Cart {
     /// Позиции корзины
     pub items: Vec<CartItem>,
@@ -204,7 +204,7 @@ pub struct Cart {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 /// Представляет данные о выбранном способе оплаты.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#paymentmethod
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#paymentmethod>
 pub struct PaymentMethod {
     /// Тип способа оплаты
     pub method_type: MethodType,
@@ -251,7 +251,7 @@ pub enum CardNetwork {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 /// Представляет данные о выбранном способе доставки.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#shippingmethod
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#shippingmethod>
 pub struct ShippingMethod {
     /// Тип способа доставки
     pub method_type: ShippingMethodType,
@@ -279,7 +279,7 @@ pub enum ShippingMethodType {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные о позиции корзины.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#cartitem
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#cartitem>
 pub struct CartItem {
     /// Id товара в системе продавца.
     /// Максимальная длина: 2048
@@ -353,7 +353,7 @@ pub enum CartItemType {
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные о купоне.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#coupon
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#coupon>
 pub struct Coupon {
     #[into]
     /// Код купона.
@@ -380,7 +380,7 @@ pub enum CouponStatus {
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Представляет данные о скидке.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#discount
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#discount>
 pub struct Discount {
     #[into]
     /// Сумма скидки.
@@ -400,7 +400,7 @@ pub struct Discount {
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// Представляет измерения.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#measurements
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#measurements>
 pub struct Measurements {
     #[into]
     /// Высота, в метрах.
@@ -419,7 +419,7 @@ pub struct Measurements {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет опции курьерской доставки.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#courieroption
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#courieroption>
 pub struct CourierOption {
     /// Стоимость доставки
     /// Пример: `123.45`
@@ -521,7 +521,7 @@ pub enum DeliveryProvider {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет опции самовывоза.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#pickupoption
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#pickupoption>
 pub struct PickupOption {
     /// Адрес в виде строки.
     /// Максимальная длина: 2048
@@ -604,7 +604,7 @@ pub enum PickupProvider {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет график работы точки самовывоза.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#pickupschedule
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#pickupschedule>
 pub struct PickupSchedule {
     /// День недели или диапазон дней.
     /// Пример: "пн-пт"
@@ -627,7 +627,7 @@ pub struct PickupSchedule {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет опции доставки Яндекс.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#yandexdeliveryoption
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#yandexdeliveryoption>
 pub struct YandexDeliveryOption {
     /// Стоимость доставки.
 
@@ -669,7 +669,7 @@ pub struct YandexDeliveryOption {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет выбор даты и времени доставки.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#flexiblecustomerchoice
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#flexiblecustomerchoice>
 pub struct FlexibleCustomerChoice {
     #[serde(with = "iso8601")]
     /// Дата доставки.
@@ -682,7 +682,7 @@ pub struct FlexibleCustomerChoice {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет интервалы времени доставки.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#flexibletimeintervals
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#flexibletimeintervals>
 pub struct FlexibleTimeIntervals {
     #[serde(rename = "type")]
     /// Тип интервалов.
@@ -701,7 +701,7 @@ pub struct FlexibleTimeIntervals {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет интервал времени.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#timeinterval
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#timeinterval>
 pub struct TimeInterval {
     /// Время начала интервала.
     pub start: String,
@@ -713,7 +713,7 @@ pub struct TimeInterval {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет сетку интервалов времени доставки.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#flexibletimeintervalsgriddescriptor
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#flexibletimeintervalsgriddescriptor>
 pub struct FlexibleTimeIntervalsGridDescriptor {
     /// Продолжительность каждого интервала.
     pub duration: String,
@@ -739,7 +739,7 @@ pub enum TimeIntervalsType {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 /// Представляет координаты местоположения.
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#location
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_order-get#location>
 pub struct Location {
     /// Широта.
     pub latitude: f64,

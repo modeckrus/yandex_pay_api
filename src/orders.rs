@@ -6,7 +6,7 @@ use serde_repr::{Deserialize_repr, Serialize_repr};
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#body>
 pub struct CreateOrderRequest {
     /// Корзина
     pub cart: RenderedCart,
@@ -88,7 +88,7 @@ pub struct CreateOrderRequest {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#renderedcart
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#renderedcart>
 pub struct RenderedCart {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     /// Корзина товаров, которую оплачивает покупатель.
@@ -102,7 +102,7 @@ pub struct RenderedCart {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#renderedcartitem
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#renderedcartitem>
 pub struct RenderedCartItem {
     #[into]
     /// Id товара в системе продавца. В параметрах запроса каждый идентификатор товара productId должен быть уникальным
@@ -152,7 +152,7 @@ pub struct RenderedCartItem {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#carttotal
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#carttotal>
 pub struct CartTotal {
     #[into]
     #[serde(with = "string_as_float")]
@@ -168,7 +168,7 @@ pub struct CartTotal {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#billingreport
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#billingreport>
 pub struct BillingReport {
     #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -184,7 +184,7 @@ pub struct BillingReport {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#qrdata
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#qrdata>
 pub struct QRData {
     #[into]
     /// Max length: 2048
@@ -193,7 +193,7 @@ pub struct QRData {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#smsoffer
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#smsoffer>
 pub struct SMSOffer {
     #[into]
     /// Номер телефона клиента (пример +71234567890) для СМС-информирования. Только для merchantId офлайн-магазина.
@@ -204,7 +204,7 @@ pub struct SMSOffer {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#customeraggregates
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#customeraggregates>
 pub struct CustomerAggregates {
     #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -272,7 +272,7 @@ pub struct CustomerAggregates {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#periodcheckaggregates
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#periodcheckaggregates>
 pub struct PeriodCheckAggregates {
     #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -323,7 +323,7 @@ pub struct PeriodCheckAggregates {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#itemquantity
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#itemquantity>
 pub struct ItemQuantity {
     #[serde(with = "string_as_float")]
     #[into]
@@ -337,7 +337,7 @@ pub struct ItemQuantity {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#cartitemfeatures
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#cartitemfeatures>
 pub struct CartItemFeatures {
     #[default(Some(false))]
     /// Не распределять баллы Плюса. Default: false
@@ -346,7 +346,7 @@ pub struct CartItemFeatures {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#itemreceipt
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#itemreceipt>
 pub struct ItemReceipt {
     pub tax: Tax,
     #[default(None)]
@@ -382,7 +382,7 @@ pub struct ItemReceipt {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#agent
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#agent>
 pub struct Agent {
     /// Признак агента по предмету расчёта
     pub agent_type: AgentType,
@@ -404,7 +404,7 @@ pub struct Agent {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#markquantity
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#markquantity>
 pub struct MarkQuantity {
     #[into]
     pub denominator: i32,
@@ -414,7 +414,7 @@ pub struct MarkQuantity {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#supplier
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#supplier>
 pub struct Supplier {
     #[into]
     /// Max length: 2048
@@ -430,7 +430,7 @@ pub struct Supplier {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#paymentsoperator
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#paymentsoperator>
 pub struct PaymentsOperator {
     #[default(vec![])]
     #[serde(skip_serializing_if = "Vec::is_empty")]
@@ -440,7 +440,7 @@ pub struct PaymentsOperator {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#transferoperator
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#transferoperator>
 pub struct TransferOperator {
     #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -460,7 +460,7 @@ pub struct TransferOperator {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#renderedcart
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#renderedcart>
 pub struct OrderExtensions {
     #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -479,7 +479,7 @@ pub struct OrderExtensions {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#merchantredirecturls
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#merchantredirecturls>
 pub struct MerchantRedirectUrls {
     #[into]
     /// Обязательное поле только для онлайн-магазинов.
@@ -496,7 +496,7 @@ pub struct MerchantRedirectUrls {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#merchantriskinfo
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#merchantriskinfo>
 pub struct MerchantRiskInfo {
     #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -530,7 +530,7 @@ pub struct MerchantRiskInfo {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#uniqrmetadata
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#uniqrmetadata>
 pub struct UniqrMetadata {
     #[into]
     /// Идентификатор QR-кода. Max length: 2048
@@ -539,7 +539,7 @@ pub struct UniqrMetadata {
 
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr, PartialEq, Eq, Hash)]
 #[repr(u8)]
-/// Налог https://pay.yandex.ru/docs/ru/custom/fns#tax
+/// Налог <https://pay.yandex.ru/docs/ru/custom/fns#tax>
 pub enum Tax {
     /// НДС по ставке 20%
     Vat20 = 1,
@@ -566,7 +566,7 @@ pub enum Tax {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr, PartialEq, Eq, Hash)]
 #[repr(u8)]
 /// Значения paymentMethodType - «признак способа расчета» (тег 1214)
-/// https://pay.yandex.ru/docs/ru/custom/fns#payment-method-type
+/// <https://pay.yandex.ru/docs/ru/custom/fns#payment-method-type>
 pub enum PaymentMethodType {
     /// Полная предварительная оплата до момента передачи предмета расчета
     FullPrepayment = 1,
@@ -587,7 +587,7 @@ pub enum PaymentMethodType {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr, PartialEq, Eq, Hash)]
 #[repr(u8)]
 /// Значения paymentSubjectType - «признак предмета расчета» (тег 1212)
-/// https://pay.yandex.ru/docs/ru/custom/fns#payment-subject-type
+/// <https://pay.yandex.ru/docs/ru/custom/fns#payment-subject-type>
 pub enum PaymentSubjectType {
     /// Товар
     Goods = 1,
@@ -646,7 +646,7 @@ pub enum PaymentSubjectType {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr, PartialEq, Eq, Hash)]
 #[repr(u8)]
 /// Значения quantity.measure - «мера количества предмета расчета» (тег 2108)
-/// https://pay.yandex.ru/docs/ru/custom/fns#measure-code
+/// <https://pay.yandex.ru/docs/ru/custom/fns#measure-code>
 pub enum Measure {
     /// Штуки или единицы
     Units = 0,
@@ -701,7 +701,7 @@ pub enum Measure {
 #[derive(Debug, Clone, Serialize_repr, Deserialize_repr, PartialEq, Eq, Hash)]
 #[repr(u8)]
 /// Признак агента по предмету расчета (тег 1222)
-/// https://pay.yandex.ru/docs/ru/custom/fns#agent-type
+/// <https://pay.yandex.ru/docs/ru/custom/fns#agent-type>
 pub enum AgentType {
     /// Банковский платежный агент
     BankPaymentAgent = 1,
@@ -773,7 +773,7 @@ pub enum CurrencyCode {
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#createorderresponsedata
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_orders-post#createorderresponsedata>
 pub struct CreateOrderResponse {
     pub payment_url: String,
 }

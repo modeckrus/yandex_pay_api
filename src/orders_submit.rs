@@ -3,7 +3,7 @@ use builder_pattern::Builder;
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_submit-post#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_submit-post#body>
 pub struct SubmitRequest {
     #[into]
     /// Идентификатор операции в системе продавца

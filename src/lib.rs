@@ -1,7 +1,7 @@
 mod orders;
 mod orders_cancel;
 mod orders_capture;
-pub mod orders_id;
+mod orders_id;
 mod orders_refund;
 mod orders_submit;
 mod orders_subscriptions;
@@ -11,7 +11,12 @@ use std::sync::Arc;
 use builder_pattern::Builder;
 use bytes::Bytes;
 pub use orders::*;
-// pub use orders_id::*;
+pub use orders_cancel::*;
+pub use orders_capture::*;
+pub use orders_id::*;
+pub use orders_refund::*;
+pub use orders_submit::*;
+pub use orders_subscriptions::*;
 
 pub trait HttpClient: Clone {
     fn send<T: serde::de::DeserializeOwned>(

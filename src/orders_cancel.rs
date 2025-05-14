@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 #[derive(Debug, Serialize, Deserialize)]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_cancel-post#operation
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_cancel-post#operation>
 pub struct Operation {
     /// Сумма операции в фиатной валюте
     pub amount: f64,

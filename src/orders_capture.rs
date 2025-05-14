@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#body>
 pub struct CaptureOrderRequest {
     /// Итоговая корзина
     pub cart: CartWithRequiredTotalWithoutFinalPrice,
@@ -23,7 +23,7 @@ pub struct CaptureOrderRequest {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#shippingprice
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#shippingprice>
 pub struct ShippingPrice {
     #[serde(with = "string_as_float")]
     pub amount: f64,
@@ -32,7 +32,7 @@ pub struct ShippingPrice {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartwithrequiredtotalwithoutfinalprice
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartwithrequiredtotalwithoutfinalprice>
 pub struct CartWithRequiredTotalWithoutFinalPrice {
     /// Позиции корзины
     pub items: Vec<CartItemWithoutFinalPrice>,
@@ -73,7 +73,7 @@ pub enum CartVersion {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartwithrequiredtotalwithoutfinalprice
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#cartwithrequiredtotalwithoutfinalprice>
 pub struct CartItemWithoutFinalPrice {
     #[into]
     /// Id товара в системе продавца
