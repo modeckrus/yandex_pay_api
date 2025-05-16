@@ -80,6 +80,7 @@ impl<C: HttpClient> YandexPayApi<C> {
 /// Yandex Pay API
 impl<C: HttpClient> YandexPayApi<C> {
     /// Запрос на создание ссылки на оплату заказа.
+    ///
     /// Запрос используется для создания и получения ссылки на оплату заказа.
     pub async fn create_order(&self, request: CreateOrderRequest) -> R<CreateOrderResponse> {
         let url = format!("{}/api/merchant/v1/orders", self.base_url);
@@ -94,6 +95,7 @@ impl<C: HttpClient> YandexPayApi<C> {
         Ok(response)
     }
     /// Запрос на получение деталей заказа.
+    ///
     /// Запрос возвращает детали заказа и список транзакций по возврату.
     pub async fn get_order(&self, order_id: impl Into<String>) -> R<OrderResponseData> {
         let url = format!(
@@ -109,6 +111,7 @@ impl<C: HttpClient> YandexPayApi<C> {
         Ok(response)
     }
     /// Запрос на отмену платежа.
+    ///
     /// Доступно только для платежей в статусе AUTHORIZED. В случае успеха статус платежа изменится на VOIDED.
     pub async fn cancel_order(
         &self,
