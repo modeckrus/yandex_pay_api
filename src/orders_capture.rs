@@ -6,22 +6,30 @@ use crate::{
 use builder_pattern::Builder;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#body>
 pub struct CaptureOrderRequest {
+    #[default(None)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     /// Итоговая корзина
-    pub cart: CartWithRequiredTotalWithoutFinalPrice,
+    pub cart: Option<CartWithRequiredTotalWithoutFinalPrice>,
+    #[default(None)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     /// Идентификатор операции
-    pub external_operation_id: String,
-    /// Сумма к списанию. Если не указана, будет списана итоговая стоимость переданной корзины
+    pub external_operation_id: Option<String>,
+    #[default(None)]
     #[serde(with = "option_string_as_float")]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    /// Сумма к списанию. Если не указана, будет списана итоговая стоимость переданной корзины
     pub order_amount: Option<f64>,
+    #[default(None)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     /// Итоговый способ доставки
-    pub shipping: ShippingPrice,
+    pub shipping: Option<ShippingPrice>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_capture-post#shippingprice>
 pub struct ShippingPrice {
@@ -38,8 +46,10 @@ pub struct CartWithRequiredTotalWithoutFinalPrice {
     pub items: Vec<CartItemWithoutFinalPriceCamelCase>,
     /// Итоговая информация о стоимости заказа
     pub total: CartTotal,
+    #[default(None)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     /// Внутренний идентификатор корзины Яндекс Пэй
-    pub cart_id: String,
+    pub cart_id: Option<String>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     #[default(vec![])]
     /// Купоны, применённые к корзине
@@ -52,6 +62,7 @@ pub struct CartWithRequiredTotalWithoutFinalPrice {
     #[default(None)]
     /// Переданный продавцом идентификатор корзины
     pub external_id: Option<String>,
+    #[default(None)]
     #[serde(skip_serializing_if = "Option::is_none")]
     /// Измерения корзины
     pub measurements: Option<Measurements>,

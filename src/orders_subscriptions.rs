@@ -7,7 +7,7 @@ use crate::serde_help::*;
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 /// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions-post#body>
-pub struct OrderSubscriptionRequest {
+pub struct CreateSubscriptionRequest {
     /// Трехбуквенный код валюты заказа (ISO 4217)
     #[default(CurrencyCode::Rub)]
     pub currency_code: CurrencyCode,
@@ -79,4 +79,12 @@ pub enum IntervalUnit {
     Week,
     Month,
     Year,
+}
+
+/// Ответ на списание подписки
+/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#recursubscriptionresponsedata
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RecurSubscriptionResponseData {
+    pub operation_id: String,
 }

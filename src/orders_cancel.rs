@@ -3,7 +3,25 @@ use crate::*;
 use crate::{orders_id::OperationType, serde_help::*};
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Builder)]
+#[serde(rename_all = "camelCase")]
+pub struct CancelOrderRequest {
+    #[into]
+    /// Причина отмены
+    pub reason: String,
+    #[default(None)]
+    /// Идентификатор операции
+    pub external_operation_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperationResponseData {
+    pub operation: Operation,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 /// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/order/merchant_v1_cancel-post#operation>
 pub struct Operation {
     /// Сумма операции в фиатной валюте

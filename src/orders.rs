@@ -778,20 +778,6 @@ pub struct CreateOrderResponse {
     pub payment_url: String,
 }
 
-impl<C: HttpClient> YandexPayApi<C> {
-    pub async fn create_order(&self, request: CreateOrderRequest) -> R<CreateOrderResponse> {
-        let url = format!("{}/api/merchant/v1/orders", self.base_url);
-        let bytes = serde_json::to_vec(&request)?;
-        let r = YandexPayApiRequest::new()
-            .url(url)
-            .body(bytes)
-            .api_key(self.api_key.clone())
-            .build();
-        let response = self.client.send::<CreateOrderResponse>(r).await?;
-        Ok(response)
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;

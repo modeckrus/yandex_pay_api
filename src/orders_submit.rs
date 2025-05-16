@@ -10,6 +10,7 @@ pub struct SubmitRequest {
     /// Max length: 2048
     pub external_operation_id: String,
     #[default(None)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     /// Итоговая корзина
     pub cart: Option<CartWithRequiredTotalWithoutFinalPrice>,
     #[default(None)]

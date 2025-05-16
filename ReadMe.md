@@ -1,8 +1,9 @@
 yandex_pay_api
 ===========================
 
-![Crates.io Version](https://img.shields.io/crates/v/yandex_pay_api)
-![docs.rs](https://img.shields.io/docsrs/yandex_pay_api)
+[<img alt="crates.io" src="https://img.shields.io/crates/v/yandex_pay_api?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/yandex_pay_api)
+[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-yandex_pay_api-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/yandex_pay_api)
+[<img alt="github" src="https://img.shields.io/badge/github-modeckrus/yandex_pay_api-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/modeckrus/yandex_pay_api)
 
 `yandex_pay_api` — это библиотека на языке Rust для взаимодействия с API Yandex Pay. Она предоставляет удобный и типобезопасный способ интеграции Yandex Pay в ваши приложения на Rust.
 
@@ -20,11 +21,12 @@ yandex_pay_api
 - **native-tls** - use native-tls for reqwest client
 
 ## Установка
-Добавьте следующее в ваш `Cargo.toml`:
-
-```toml
-[dependencies]
-yandex_pay_api = "0.1.0"
+Выполните команду 
+```shell
+cargo add yandex_pay_api
+cargo add tracing-subscriber --features=fmt
+cargo add tracing
+cargo add tokio --features=full
 ```
 
 ## Использование
@@ -87,11 +89,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ```
 
 ## Пример для своего http клиента
-`Cargo.toml`
-```toml
-[dependencies]
-yandex_pay_api = {version = "0.2.0", no-default-features = true}
-reqwest = {version = "0.12"}
+Выполните команду 
+```shell
+cargo add yandex_pay_api --no-default-features
+cargo add reqwest --no-default-features --features=rustls-tls
+cargo add tracing-subscriber --features=fmt
+cargo add tracing
+cargo add tokio --features=full
 ```
 `main.rs`
 ```rust
@@ -135,7 +139,6 @@ impl HttpClient for MyHttpClient {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    dotenv::dotenv()?;
     tracing_subscriber::fmt::init();
     // Инициализация клиента
     let client = MyHttpClient(reqwest::Client::new());
@@ -158,7 +161,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Лицензия
 
-Этот проект лицензирован на условиях лицензии MIT. Подробнее см. в файле [LICENSE-APACHE](LICENSE-APACHE).
+Этот проект лицензирован на условиях лицензии [MIT](LICENSE-MIT) и [Apache 2.0](LICENSE-APACHE). Подробнее см. в файле [LICENSE-APACHE][LICENSE-APACHE]. 
 
 ## Благодарности
 
