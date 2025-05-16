@@ -5,7 +5,7 @@ use crate::orders::*;
 use crate::serde_help::*;
 
 /// Запрос на рекуррентное списание по подписке
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#body>
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 pub struct CreateRecurrentChargeRequest {

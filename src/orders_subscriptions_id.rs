@@ -4,7 +4,7 @@ use builder_pattern::Builder;
 use serde::{Deserialize, Serialize};
 
 /// Запрос на рекуррентное списание по подписке
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_customer_subscription-get#body
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_customer_subscription-get#body>
 #[derive(Debug, Clone, Serialize, Deserialize, Builder)]
 #[serde(rename_all = "camelCase")]
 pub struct GetSubscriptionRequest {
@@ -13,7 +13,7 @@ pub struct GetSubscriptionRequest {
 }
 
 /// Ответ на списание подписки
-/// https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#recursubscriptionresponsedata
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#recursubscriptionresponsedata>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CustomerSubscriptionResponseData {
