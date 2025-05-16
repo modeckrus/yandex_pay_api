@@ -269,7 +269,7 @@ impl<C: HttpClient> YandexPayApi<C> {
     pub async fn create_subscription(
         &self,
         subscription: CreateSubscriptionRequest,
-    ) -> Result<CreateSubscriptionRequest, YandexPayApiError> {
+    ) -> Result<CreateSubscriptionResponseData, YandexPayApiError> {
         let url = format!("{}/api/merchant/v1/subscriptions", self.base_url);
         let bytes = serde_json::to_vec(&subscription)?;
         let r = YandexPayApiRequest::new()

@@ -489,7 +489,8 @@ pub struct MerchantRedirectUrls {
     #[into]
     /// Обязательное поле только для онлайн-магазинов. Ссылка для переадресации пользователя в случае успешной оплаты.
     pub on_success: String,
-    #[into]
+    #[default(None)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     /// Ссылка для переадресации пользователя в случае отмены процесса оплаты. Отмену оплаты осуществляет пользователь на форме для оплаты.
     pub on_abort: Option<String>,
 }

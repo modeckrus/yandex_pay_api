@@ -38,3 +38,11 @@ pub struct CreateRecurrentChargeRequest {
     /// Назначение платежа
     pub purpose: Option<String>,
 }
+
+/// Ответ на списание подписки
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#recursubscriptionresponsedata>
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RecurSubscriptionResponseData {
+    pub operation_id: String,
+}

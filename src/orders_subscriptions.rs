@@ -82,9 +82,12 @@ pub enum IntervalUnit {
 }
 
 /// Ответ на списание подписки
-/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions_recur-post#recursubscriptionresponsedata>
+/// <https://pay.yandex.ru/docs/ru/custom/backend/yandex-pay-api/subscriptions/merchant_v1_subscriptions-post#createsubscriptionresponsedata>
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct RecurSubscriptionResponseData {
-    pub operation_id: String,
+pub struct CreateSubscriptionResponseData {
+    /// Ссылка на оплату заказа
+    pub payment_url: String,
+    /// Идентификатор подписки
+    pub subscription_id: String,
 }
