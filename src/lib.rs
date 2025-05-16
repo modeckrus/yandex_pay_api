@@ -91,7 +91,7 @@ pub struct YandexPayApiRequest {
 fn default_request_id() -> S {
     uuid::Uuid::now_v7().to_string().into()
 }
-
+#[cfg(feature = "reqwest")]
 impl HttpClient for reqwest::Client {
     fn send<T: serde::de::DeserializeOwned>(
         &self,

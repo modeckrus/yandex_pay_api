@@ -1,6 +1,6 @@
 [package]
 name = "yandex_pay_api"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 authors = ["Modeck Rus <modeckrus.official.page@gmail.com>"]
 categories = ["api-bindings"]
@@ -11,12 +11,19 @@ keywords = ["yandex", "pay", "api"]
 license = "MIT OR Apache-2.0"
 readme = "ReadMe.md"
 repository = "https://github.com/modeckrus/yandex_pay_api"
+
+[features]
+default = ["reqwest", "rustls"]
+reqwest = ["dep:reqwest"]
+rustls = ["reqwest/rustls-tls"]
+native-tls = ["reqwest/native-tls"]
+
 [dependencies]
 tracing = "0.1"
 serde = { version = "1", features = ["derive", "rc"] }
 serde_json = { version = "1" }
-reqwest = { version = "0.12" }
-uuid = { version = "1", features = ["v4", "serde", "v7"] }
+reqwest = { version = "0.12", optional = true, default-features = false }
+uuid = { version = "1", features = ["v7"] }
 thiserror = "2"
 serde_repr = "0.1"
 builder-pattern = "0.4"

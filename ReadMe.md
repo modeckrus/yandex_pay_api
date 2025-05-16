@@ -14,6 +14,11 @@ yandex_pay_api
 - **Поддержка сериализации**: Встроенная поддержка JSON-сериализации/десериализации с использованием `serde`.
 - **Паттерн Builder**: Упрощение создания объектов с помощью паттерна Builder.
 
+## Features
+- **reqwest** - use reqwest as http client `default`
+- **rustls** - use rustls for reqwest client `default`
+- **native-tls** - use native-tls for reqwest client
+
 ## Установка
 Добавьте следующее в ваш `Cargo.toml`:
 
@@ -81,6 +86,68 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
+## Пример для своего http клиента
+`Cargo.toml`
+```toml
+[dependencies]
+yandex_pay_api = {version = "0.2.0", no-default-features = true}
+reqwest = {version = "0.12"}
+```
+`main.rs`
+```rust
+use yandex_pay_api::*;
+
+struct MyHttpClient(reqwest::Client);
+
+impl HttpClient for MyHttpClient {
+    fn send<T: serde::de::DeserializeOwned>(
+        &self,
+        request: YandexPayApiRequest,
+    ) -> impl Future<Output = R<T>> {
+        let client = self.0.clone();
+
+        async move {
+            let body = request.body.clone();
+            let response = client
+                .post(&*request.url)
+                .header("Authorization", format!("Api-Key {}", request.api_key))
+                .header("X-Request-Id", &*request.request_id)
+                .header("X-Request-Timeout", request.request_timeout.to_string())
+                .header("X-Request-Attempt", request.request_attempt.to_string())
+                .header("Content-Type", "application/json")
+                .body(body)
+                .send()
+                .await?;
+
+            if response.status().is_success() {
+                let result = response.text().await?;
+                let result = serde_json::from_str::<YandexPayApiResponse<T>>(&result)?;
+                Ok(result.data)
+            } else {
+                let error_message = response.text().await?;
+                tracing::error!("{}", error_message);
+                let error = serde_json::from_str::<YandexPayApiResponseError>(&error_message)?;
+                Err(YandexPayApiError::Api(error))
+            }
+        }
+    }
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    dotenv::dotenv()?;
+    tracing_subscriber::fmt::init();
+    // Инициализация клиента
+    let client = MyHttpClient(reqwest::Client::new());
+    let api = YandexPayApi::new(
+        "https://sandbox.pay.yandex.ru".into(),
+        // Ваш API-ключ для sandbox он совпадает с MERCHANT_ID
+        std::env::var("YANDEX_MERCHANT_ID")?.into(),
+        client,
+    );
+}
+
+```
 ## Документация
 
 Для подробной документации посетите [API Reference](https://docs.rs/yandex_pay_api).
